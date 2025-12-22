@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Kontakt IPI</title>
+    <link rel="stylesheet" href="css/izgled.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img src="slike/logo-ipi.png" alt="Kursevi IPI" />
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">O kursevima</a></li>
+          <li><a href="popis.html">Popis kurseva</a></li>
+          <li><a href="raspored.html">Raspored kurseva</a></li>
+          <li><a href="StudentFunZone.html">Student Fun Zone</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+    <article>
+      <h2>Kontakt</h2>
+      <img src="slike/srce.jpg" alt="Srce" />
+      <p>Do IPI-ja se može doći javnim gradskim prevozom ili taksijem.</p>
+      <p>Naša adresa je:</p>
+      <p>
+        Sveučilišni računski centar<br />
+        Kulina bana br. 2 (Skver)<br />
+        Tuzla<br />
+        75000<br />
+        Bosna i Hercegovina<br />
+        <a href="mailto:info@ipi-akademija.ba">info@ipi-akademija.ba</a>
+      </p>
+
+
+      <form id="kontaktForma" action="">
+        <label for="ime">Ime:</label><br>
+        <input type="text" id="ime" name="ime" required minlength="4"><br><br>
+
+        <label for="prezime">Prezime:</label><br>
+        <input type="text" id="prezime" name="prezime" required minlength="4"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required ><br><br>
+
+        <label for="telefon">Broj telefona:</label><br>
+        <input type="tel" id="telefon" name="telefon" required><br><br>
+
+        <label for="adresa">Adresa:</label><br>
+        <input type="text" id="adresa" name="adresa"><br><br>
+
+        <label for="poruka">Poruka:</label><br>
+        <textarea id="poruka" name="poruka" rows="4" cols="40" required></textarea><br><br>
+
+        <input type="checkbox" id="tac" name="tac" required>
+        <label for="tac">Prihvatam uslove korištenja</label><br><br>
+
+        <input type="submit" id="posaljiBtn" value="Pošalji">
+      </form>
+
+      <script>
+      
+      const form = document.getElementById('kontaktForma');
+      const btn = document.getElementById('posaljiBtn');
+      const inputs = [
+        document.getElementById('ime'),
+        document.getElementById('prezime'),
+        document.getElementById('email'),
+        document.getElementById('telefon'),
+        document.getElementById('poruka'),
+        document.getElementById('tac')
+      ];
+
+      function validateForm() {
+          const ime = document.getElementById("ime").value.trim();
+          const prezime = document.getElementById("prezime").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const telefon = document.getElementById("telefon").value.trim();
+          const poruka = document.getElementById("poruka").value.trim();
+          const tac = document.getElementById("tac").checked;
+
+          const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;
+          const telRegex = /^\+?[0-9\s-]{6,}$/;
+
+          const valid = 
+            ime.length >= 4 &&
+            prezime.length >= 4 &&
+            emailRegex.test(email) &&
+            telRegex.test(telefon) &&
+            poruka !== "" &&
+            tac;
+
+          btn.disabled = !valid;
+        }
+
+
+      inputs.forEach(input => {
+        input.addEventListener('input', validateForm);
+        input.addEventListener('change', validateForm);
+      });
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        validateForm();
+        if (btn.disabled) return;
+
+        const ime = document.getElementById('ime').value;
+        const prezime = document.getElementById('prezime').value;
+        const email = document.getElementById('email').value;
+        const telefon = document.getElementById('telefon').value;
+        const adresa = document.getElementById('adresa').value;
+        const poruka = document.getElementById('poruka').value;
+
+        const mailto = 'info@ipiakademija';
+        const subject = `Kontakt forma - ${ime} ${prezime}`;
+        const body = `
+                    Ime: ${ime}
+                    Prezime: ${prezime}
+                    Email: ${email}
+                    Telefon: ${telefon}
+                    Adresa: ${adresa}
+
+                    Poruka:
+                    ${poruka}
+                            `;
+
+        window.location.href = `mailto:${mailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      });
+
+      window.addEventListener('DOMContentLoaded', validateForm);
+      </script>
+    </article>
+
+    <footer>
+      &copy; Internacionalna poslovno-informaciona akademija Tuzla
+    </footer>
+  </body>
+</html>

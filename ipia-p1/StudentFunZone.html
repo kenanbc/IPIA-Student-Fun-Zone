@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Student fun zone IPI</title>
+        <link rel="stylesheet" href="css/izgled.css">
+        <style>
+            iframe {
+                width: 100%;
+                height: 600px;
+                border: none;
+                margin-top: 20px;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+        <a href="index.html">
+            <img src="slike/logo-ipi.png" alt="Kursevi IPI">
+        </a>
+        
+        <nav>
+        <ul>
+            <li><a href="index.html">O kursevima</a></li>
+            <li><a href="popis.html">Popis kurseva</a></li>
+            <li><a href="raspored.html">Raspored kurseva</a></li>
+	        <li><a href="StudentFunZone.html">Student Fun Zone</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul></nav>
+        </header>
+        <article>
+		<h2>Student Fun Zone</h2>
+            <iframe id="okvir"></iframe>
+        <div class="games">
+            <div class="game-card bingo">
+                <img src="./slike/bingo_5025899.png" alt="">
+                <button onclick="otvoriStranicu('bingo.html')">Bingo</button>
+            </div>
+            <div class="game-card kviz">
+                <img src="./slike/laptop_3130747.png" alt="">
+                <button onclick="otvoriStranicu('kviz.html')">Kviz</button>
+            </div>
+            <div class="game-card whiteboard">
+                <img src="./slike/whiteboards_18782820.png" alt="">
+                <button onclick="otvoriStranicu('whiteboard.html')">WhiteBoard</button>
+            </div>
+            <div class="game-card visionboard">
+                <img src="./slike/target_5362709.png" alt="">
+                <button onclick="otvoriStranicu('visionboard.html')">VisionBoard</button>
+            </div>
+            <div class="game-card kanban">
+                <img src="./slike/planning_5792530.png" alt="">
+                <button onclick="otvoriStranicu('kanban.html')">Kanban</button>
+            </div>
+        </div>
+        </article>
+        <footer>
+        &copy; Internacionalna poslovno-informaciona akademija Tuzla
+    </footer>
+
+    <script>
+        function otvoriStranicu(stranica) {
+            let okvir = document.getElementById('okvir');
+            okvir.src = stranica;
+            okvir.style.display = "block";
+        }
+
+        function zatvoriFrame() {
+            let okvir = document.getElementById('okvir');
+            okvir.style.display = "none";
+            okvir.src = "";
+        }
+    </script>
+</body>
+</html>

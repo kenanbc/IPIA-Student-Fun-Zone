@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kviz</title>
+    <link rel="stylesheet" href="./css/styleKviz.css" />
+  </head>
+  <body>
+    <h1>KVIZ</h1>
+    <hr />
+    <p>
+      Dobrodošli u studentski kviz! Testirajte svoje znanje o HTML-u i osnovama
+      weba.<br /><br>
+      Odaberite tačan odgovor(e) za svako pitanje. Neki mogu imati više tačnih
+      opcija!
+    </p>
+    <hr>
+    <form action="">
+      <h3>1. Šta je skraćenica HTML?</h3>
+      <input type="radio" name="prvoPitanje" id="hypertext" />
+      <label for="hypertext">HyperText Markup Language</label><br />
+      <input type="radio" name="prvoPitanje" id="hightext" />
+      <label for="hightext">HighText Markup Language</label><br />
+      <input type="radio" name="prvoPitanje" id="makeup" />
+      <label for="makeup">HyperText Makeup Language</label><br />
+
+      <h3>2. Koje se oznake koriste za izradu popisa u HTML-u?</h3>
+      <input type="checkbox" name="drugoPitanje" id="ul" />
+      <label for="ul">&lt;ul></label><br />
+      <input type="checkbox" name="drugoPitanje" id="ol" />
+      <label for="ol">&lt;ol></label><br />
+      <input type="checkbox" name="drugoPitanje" id="li" />
+      <label for="li">&lt;li></label><br />
+      <input type="checkbox" name="drugoPitanje" id="br" />
+      <label for="br">&lt;br></label><br />
+
+      <h3>3. Koja se oznaka koristi za umetanje slike?</h3>
+      <input type="radio" name="trecePitanje" id="image" />
+      <label for="image">&lt;image></label><br />
+      <input type="radio" name="trecePitanje" id="img" />
+      <label for="img">&lt;img></label><br />
+      <input type="radio" name="trecePitanje" id="src" />
+      <label for="src">&lt;src></label><br />
+
+      <h3>4. Koja od sljedećih su valjani HTML atributi?</h3>
+      <input type="checkbox" name="cetvrtoPitanje" id="href" />
+      <label for="href">href</label><br />
+      <input type="checkbox" name="cetvrtoPitanje" id="source" />
+      <label for="source">src</label><br />
+      <input type="checkbox" name="cetvrtoPitanje" id="bold" />
+      <label for="bold">bold</label><br />
+      <input type="checkbox" name="cetvrtoPitanje" id="alt" />
+      <label for="alt">alt</label><br />
+
+      <h3>Koji je isprava način za stvaranje linkova u HTML-u?</h3>
+      <input type="radio" name="petoPitanje" id="url" />
+      <label for="url">&lt;a url="example.com">Click &lt;/a></label><br />
+      <input type="radio" name="petoPitanje" id="ahref" />
+      <label for="ahref">&lt;a href="example.com">Click &lt;/a></label><br />
+      <input type="radio" name="petoPitanje" id="link" />
+      <label for="link">&lt;link>Click &lt;/link></label><br/>
+
+      <button>Provjerite odgovore</button>
+      <button onclick="parent.zatvoriFrame()" style="background-color: red;">Izlaz</button>
+    </form>
+  </body>
+</html>

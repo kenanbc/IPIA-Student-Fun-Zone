@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTE-8" />
+    <meta name="viewport" content="width=device-width, initial-scale-1.0" />
+    <title>Kanban ploča</title>
+    <link rel="stylesheet" href="./css/kanbanstyle.css" />
+  </head>
+  <body>
+
+    <hl>Kanban ploča</hl>
+
+    <div class="buttons">
+      <button id="addTaskBtn">Dodai zadatak</button>
+      <button id="saveBoardBtn">Snimi</button>
+      <button id="savePDFBtn">Snimi kao PDF</button>
+      <button id="emailBtn">Pošalji mailom</button>
+      <button id="clearBoardBtn">Očisti ploču</button>
+      <button onclick="parent.zatvoriFrame()" style="background-color: red;">Izlaz</button>
+    </div>
+
+    <div id="taskModal" class="modal">
+      <div class="modal-content">
+        <h3>Dodaj zadatak</h3>
+        <input type="text" id="taskInput" placeholder="Vaš zadatak..." />
+        <div class="modal-buttons">
+          <button id="modalAdd">Dodaj</button>
+          <button id="modalCancel">Poništi</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="clearModal" class="modal">
+      <div class="modal-content">
+        <h3>Očisti cijelu ploču?</h3>
+        <p>Ova se radnja ne može poništiti.</p>
+        <div class="modal-buttons">
+          <button id="clearYes" style="background-color: #e74c3c;">Očisti</button>
+            <button id="clearNo">Poništi</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="emailModal" class="email-modal">
+      <div class="email-modal-content">
+        <h3>Pošalji mailom</h3>
+        <input type="email" id="emailInput" placeholder="Unesite email adresu..." />
+        <div class="email-modal-buttons">
+          <button id="sendEmailBtn" class="email-send-btn">Pošalji</button>
+          <button id="cancelEmailBtn" class="email-cancel-btn">Poništi</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="board">
+      <div class="column" data-status="todo">
+        <h2>To Do</h2>
+        <div class="taskList"></div>
+        </div>
+
+        <div class="column" data-status="progress">
+          <h2>In Progress</h2>
+          <div class="taskList"></div>
+        </div>
+        
+        <div class="column" data-status="done">
+          <h2>Done</h2>
+          <div class="taskList"></div>
+        </div>
+      </div>
+
+      <footer>
+        <p>
+          Web programiranje 2025 &copy; Internacionalna poslovno-informaciona
+          akademija Tuzla
+        </p>
+    </footer>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+     <script src="kanbanJS.js"></script>
+
+  </body>
+</html>
