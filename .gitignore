@@ -1,0 +1,21 @@
+# Node modules (Angular)
+ipia-p2/node_modules/
+
+# Angular build output
+ipia-p2/dist/
+ipia-p2/out-tsc/
+
+# Log files
+npm-debug.log
+yarn-error.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / editor settings
+.vscode/
+.idea/
+
+ipia-p1/*.bak
+ipia-p1/*~
