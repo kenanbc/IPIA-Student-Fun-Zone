@@ -2,13 +2,7 @@ html {
     background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
 }
 form {
-    background: #ffffff;
-    padding: 30px 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    max-width: 500px;
-    margin: 180px auto 0 auto;
-    border: 1px solid #ddd;
+  width: 500px;
 }
 
 form label {
@@ -20,10 +14,10 @@ form label {
 form input[type="text"],
 form input[type="email"],
 form input[type="tel"],
+form input[type="password"],
 form textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 18px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 14px;
@@ -34,6 +28,7 @@ form textarea {
 form input[type="text"]:focus,
 form input[type="email"]:focus,
 form input[type="tel"]:focus,
+form input[type="password"]:focus,
 form textarea:focus {
     border-color: #4a90e2;
     outline: none;
@@ -67,6 +62,7 @@ form input[type="submit"] {
     border-radius: 6px;
     font-size: 15px;
     cursor: pointer;
+    width: 20rem;
 }
 
 form input[type="submit"]:hover {
@@ -82,10 +78,10 @@ body
     line-height:1.6;
 }
 
-header img
+/* header img
 {
     margin: 10px 0 10px 30px;
-}
+} */
 
 header, article
 {
@@ -93,8 +89,8 @@ header, article
     margin: 0px auto;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    margin-bottom: 20px;
+    /* border-radius: 8px; */
+    /* margin-bottom: 20px; */
 }
 
 nav
@@ -102,8 +98,7 @@ nav
     background: linear-gradient(90deg, #4a90e2 0%, #357abd 100%);
     padding: 15px 0;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-       
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);   
 }
 
 nav a, nav a:hover, nav a:visited, nav a:active
@@ -117,7 +112,6 @@ nav a, nav a:hover, nav a:visited, nav a:active
 
 nav a
 {
-    display: inline-block;
     width:100%;
     text-decoration: none;
     border-radius: 5px;
@@ -133,11 +127,13 @@ nav ul
 {
     list-style: none;
     margin:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav ul li
 {
-    
     display:inline-block;
 }
 
@@ -156,8 +152,7 @@ article
 {
     padding :20px 40px;
     box-sizing: border-box;
-    
-    border-bottom: 2px solid #345aaa;
+    /* border-bottom: 2px solid #345aaa; */
     min-height:600px;
 }
 
@@ -176,6 +171,7 @@ footer
     color:white;
     text-align:center;
     box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+    margin: 0 10%;
 }
 
 table
@@ -388,4 +384,29 @@ button:hover
 
 .email-cancel-btn:hover {
     background: #c0392b;
+}
+
+.container {
+    padding: 7rem 2rem;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 0 10%;
+}
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 0px auto 0 auto;
+    border: 1px solid #ddd;
+}
+
+.center-button{
+    display: flex;
+    justify-content: center;
 }
