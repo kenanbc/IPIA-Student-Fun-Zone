@@ -1,5 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
+// import { onAuthStateChanged } from '@angular/fire/auth';
 import { RouterOutlet } from '@angular/router';
+import { auth } from './firebase';
+// import { Login } from "./login/login";
+// import { Register } from "./register/register";
 
 @Component({
   selector: 'app-root',
@@ -8,5 +12,6 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('ipia-p2');
+
+
 }

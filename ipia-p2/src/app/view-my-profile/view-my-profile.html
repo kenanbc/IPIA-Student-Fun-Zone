@@ -1,0 +1,11 @@
+<div>
+    <h2>Moj Profil</h2>
+    <div class="profile-container">
+        <p><strong>Ime:</strong> {{ auth.userProfile()?.firstName }}</p>
+        <p><strong>Prezime:</strong> {{ auth.userProfile()?.lastName }}</p>
+        <p><strong>E-mail:</strong> {{ auth.userProfile()?.email }}</p>
+    </div>
+    <div class="center-button">
+        <button (click)="logout()">Odjavi se</button>
+    </div>
+</div>

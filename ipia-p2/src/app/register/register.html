@@ -1,0 +1,21 @@
+<div class="container">
+            <div class="login-container">
+                <h2>Registracija</h2>
+                <form id="registerForm">
+                    <label for="ime">Ime</label>
+                    <input type="text" id="ime" name="ime" required><br><br>
+
+                    <label for="prezime">Prezime</label>
+                    <input type="text" id="prezime" name="prezime" required><br><br>
+                    
+                    <label for="email">E-mail</label>
+                    <input type="text" id="email" name="email" required placeholder="ime.prezime@ipi-akademija.ba"><br><br>
+
+                    <label for="password">Lozinka:</label>
+                    <input type="password" id="password" name="password" required><br><br>
+                    <div class="center-button"> <input type="submit" value="Prijava"></div>
+                   
+                </form>
+                <p>Imate nalog? <a [routerLink]="['/']">Prijavite se ovdje</a></p>
+            </div>
+        </div>
