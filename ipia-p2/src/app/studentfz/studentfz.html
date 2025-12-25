@@ -1,0 +1,11 @@
+<article>
+  <h2 style="text-align: center; margin-bottom: 2rem;">Student Fun Zone</h2>
+
+  <div class="games">
+    @for (game of games; track $index) {
+    <div class="game-card">
+      <img [src]="game.img" alt="">
+      <button (click)="otvoriStranicu(game.route)" [disabled]="!game.route">{{ game.name }}</button>
+    </div>}
+  </div>
+</article>

@@ -1,0 +1,49 @@
+nav
+{
+    background: linear-gradient(90deg, #4a90e2 0%, #357abd 100%);
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);   
+}
+
+nav a, nav a:hover, nav a:visited, nav a:active
+{
+    color:white;
+    padding:12px 25px;
+    display:inline-block;
+    text-transform:uppercase;
+    font-weight:600;
+    transition: background-color 0.3s ease;
+}
+
+nav a
+{
+    width:100%;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+nav a:hover
+{
+    background-color: rgba(255,255,255,0.2);
+    text-decoration: none;
+}
+
+nav ul
+{
+    list-style: none;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li
+{
+    display:inline-block;
+}
+
+nav li{
+    margin: 0 2rem;
+}

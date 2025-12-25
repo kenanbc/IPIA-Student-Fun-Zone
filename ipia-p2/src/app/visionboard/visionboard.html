@@ -1,0 +1,36 @@
+<div class="controls">
+  <button (click)="addNote()">Dodaj biljesku</button>
+  <button (click)="addImage()">Dodaj fotografiju</button>
+  <button (click)="addQuote()">Dodaj citat</button>
+   <button routerLink="/studentfunzone">Izlaz</button>
+</div>
+
+<div class="board">
+
+  @for (item of items; track item.id) {
+    <div
+      class="item"
+      [ngStyle]="{ left: item.left + 'px', top: item.top + 'px' }"
+      [ngClass]="item.color"
+    >
+
+      <button class="delete" (click)="remove(item.id)">✖</button>
+
+      @if (item.type === 'note') {
+        <div contenteditable="true">
+          {{ item.content }}
+        </div>
+      }
+
+      @if (item.type === 'image') {
+        <img [src]="item.content" />
+      }
+
+      @if (item.type === 'quote') {
+        <div>
+          {{ item.content }}
+        </div>
+      }
+    </div>
+  }
+</div>

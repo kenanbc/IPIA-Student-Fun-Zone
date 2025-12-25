@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+@if (auth.userProfile()?.email) {<app-navbar></app-navbar>}
+<div class="app-container">
+  <router-outlet></router-outlet>
+</div>

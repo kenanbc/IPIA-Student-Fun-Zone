@@ -1,0 +1,79 @@
+.heading{
+    text-align: center;
+    font-size: 2rem;
+    margin: 1rem;
+    font-weight: bold;
+    color: #0c3b6b;
+}
+
+.main-profile-container {
+    height: 100%;
+}
+
+.profile-container{
+    border-top: 1px solid #4a90e2;
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    align-items: center;
+    border-bottom: 1px solid #4a90e2;
+}
+
+.profile-buttons{
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+button
+{
+    background-color: #4a90e2;
+    color:white;
+    font-weight:bold;
+    border:none;
+    padding:12px 30px;
+    border-radius: 0.4rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover
+{
+    background-color: #357abd;
+}
+
+#profile-email{
+    color: rgb(114, 113, 113);
+}
+
+#profile-name{
+    color: rgb(14, 14, 14);
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.btn-logout{
+    background-color: #e24a4a;
+}
+.btn-logout:hover{
+    background-color: #b33a3a;
+}
+
+.activity-history{
+    margin-top: 2rem;
+    border-bottom: 1px solid #4a90e2;
+}
+
+.achievements{
+    margin-top: 2rem;
+    border-bottom: 1px solid #4a90e2;
+}
+
+.subheading{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #357abd;
+    margin-bottom: 1rem;
+}

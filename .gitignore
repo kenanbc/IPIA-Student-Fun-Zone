@@ -19,3 +19,8 @@ Thumbs.db
 
 ipia-p1/*.bak
 ipia-p1/*~
+
+.angular/
+dist/
+out-tsc/
+.vite/

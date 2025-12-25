@@ -1,11 +1,24 @@
-<div>
-    <h2>Moj Profil</h2>
+<div class="main-profile-container">
+    <h2 class="heading">Moj Profil</h2>
     <div class="profile-container">
-        <p><strong>Ime:</strong> {{ auth.userProfile()?.firstName }}</p>
-        <p><strong>Prezime:</strong> {{ auth.userProfile()?.lastName }}</p>
-        <p><strong>E-mail:</strong> {{ auth.userProfile()?.email }}</p>
+        <div class="avatar"><img src="/avatar.svg" alt="" style="width: 250px;"></div>
+            <div>
+            <div class="profile-content">
+            <p id="profile-name">{{ auth.userProfile()?.firstName }} {{ auth.userProfile()?.lastName }}</p>
+            <p id="profile-email">{{ auth.userProfile()?.email }}</p>
+            </div>
+            <div class="profile-buttons">
+                <button>Uredi profil</button>
+                <button (click)="logout()" class="btn-logout">Odjavi se</button>
+            </div>
+        </div>
     </div>
-    <div class="center-button">
-        <button (click)="logout()">Odjavi se</button>
+    <div class="activity-history">
+        <h3 class="subheading">Moje aktivnosti</h3>
+        <p>Jos nemas aktivnosti. Pocni da koristis aplikaciju kako bi biljezio svoje aktivnosti!</p>
+    </div>
+    <div class="achievements">
+        <h3 class="subheading">Postignuća</h3>
+        <p>Jos nemas postignuca. Nastavi da koristis aplikaciju kako bi otkljucao postignuca!</p>
     </div>
 </div>
