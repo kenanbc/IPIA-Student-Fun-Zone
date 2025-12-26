@@ -1,4 +1,23 @@
+:root{
+    --primary-color: #0F4C75;
+    --secondary-color: #3282B8;
+    --font-color: #BBE1FA;
+    --dark-font-color: #1B262C;
+}
+
 body{
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Nunito", "Rubik", sans-serif;
+    background: var(--secondary-color);
+    overflow: scroll;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    color: var(--font-color);
+}
+
+h1{
+    font-size: 3rem;
+    text-align: center; 
+    margin-bottom: 2rem;
 }

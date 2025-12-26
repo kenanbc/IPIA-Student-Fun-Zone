@@ -1,0 +1,33 @@
+.home-container{
+    background: var(--primary-color);
+    height: 80%;
+    border-radius: 1rem;
+    text-align: center;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 6rem;
+    /* border: 1px solid black; */
+}
+
+button
+{
+    background-color: var(--secondary-color);
+    color:var(--font-color);
+    font-weight:bold;
+    border:none;
+    padding:12px 30px;
+    border-radius: 0.4rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin: 0 1rem;
+}
+
+h1{
+    color: var(--font-color);
+    font-size: 3rem;
+    margin: 0 0 3rem 0;
+}
