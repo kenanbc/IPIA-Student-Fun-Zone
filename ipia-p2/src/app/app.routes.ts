@@ -9,6 +9,7 @@ import { authGuard } from './auth.guard';
 import { noAuthGuard } from './no-auth.guard';
 import { Home } from './home/home';
 import { WaterTracker } from './water-tracker/water-tracker';
+import { SleepTracker } from './sleep-tracker/sleep-tracker';
 
 export const routes: Routes = [
   {
@@ -49,6 +50,11 @@ export const routes: Routes = [
   {
     path: 'water-tracker',
     component: WaterTracker,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'sleep-tracker',
+    component: SleepTracker,
     canActivate: [authGuard]
   }
 ];

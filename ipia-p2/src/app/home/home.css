@@ -1,6 +1,6 @@
 .home-container{
     background: var(--primary-color);
-    height: 80%;
+    height: 100%;
     border-radius: 1rem;
     text-align: center;
     margin-top: 50px;
@@ -9,7 +9,7 @@
     align-items: center;
     flex-direction: column;
     gap: 2rem;
-    padding: 0 6rem;
+    padding: 2rem 6rem;
     /* border: 1px solid black; */
 }
 

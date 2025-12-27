@@ -1,0 +1,59 @@
+<div class="tracker-page">
+        <div>
+            <a routerLink="/mytrackers" class="back-btn">← Nazad</a>
+            <div class="heading">
+                <h1></h1>
+                <div>
+                    <h1>Unos vode tokom dana</h1>
+                    <p class="tracker-description">Ostanite hidrirani i pratite unos vode tokom dana</p>
+                </div>
+           </div>
+        </div>
+
+        <div class="num-stats">
+            <div class="stats-card">
+                <h2>{{ waterService.glassCount() }}</h2>
+                <p>Čaša vode</p>
+            </div>
+            <div class="stats-card">
+                <h2>{{ waterService.todayLiters() }} L</h2>
+                <p>Ukupno</p>
+            </div>
+            <div class="stats-card">
+                <h2>{{ waterService.progress() }}%</h2>
+                <p>Dnevni cilj</p>
+            </div>
+            <div class="stats-card">
+                <h2>{{ waterService.dailyGoal() }} L</h2>
+                <p>Dnevni cilj</p>
+            </div>
+        </div>
+
+        <div class="add-intake">
+            <h2>Današnji unos</h2>
+            <div class="progress-wrapper">
+                <div class="progress-bar" [style.width.%]="waterService.progress()">
+            </div>
+            </div>
+                <p>{{ waterService.progress() }}%</p>
+            
+            <div class="btns">
+                <button (click)="addGlass()">Dodaj unos (+250ml)</button>
+                <button class="reset" (click)="reset()">Resetuj</button>
+            </div>
+        </div>
+        <div class="goal-intake">
+            <h2>Postavke</h2>
+            <p>Podesite dnevni cilj unosa vode</p>
+            <div class="select-btn">
+                <select name="goalSelect" [(ngModel)]="selectedGoal">
+                    <option value="1">1 L</option>
+                    <option value="1.5">1.5 L</option>
+                    <option value="2">2 L</option>
+                    <option value="2.5">2.5 L</option>
+                    <option value="3">3 L</option>
+                </select>
+                <button (click)="saveGoal()">Spremi</button>
+            </div>
+        </div>
+    </div>   
