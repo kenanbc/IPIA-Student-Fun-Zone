@@ -10,6 +10,7 @@ import { noAuthGuard } from './no-auth.guard';
 import { Home } from './home/home';
 import { WaterTracker } from './water-tracker/water-tracker';
 import { SleepTracker } from './sleep-tracker/sleep-tracker';
+import { FocusTracker } from './focus-tracker/focus-tracker';
 
 export const routes: Routes = [
   {
@@ -55,6 +56,11 @@ export const routes: Routes = [
   {
     path: 'sleep-tracker',
     component: SleepTracker,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'focus-tracker',
+    component: FocusTracker,
     canActivate: [authGuard]
   }
 ];

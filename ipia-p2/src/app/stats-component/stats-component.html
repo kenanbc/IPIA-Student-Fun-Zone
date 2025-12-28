@@ -1,0 +1,8 @@
+<div class="num-stats">
+    @for (stat of stats; track stat.label) {
+        <div class="stats-card">
+            <h2>{{stat.value}} @if(stat.unit){{{stat.unit}}}</h2>
+            <p>{{stat.label}}</p>
+        </div>
+    }
+</div>

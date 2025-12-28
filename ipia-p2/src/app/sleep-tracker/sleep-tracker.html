@@ -5,29 +5,12 @@
                 <h1></h1>
                 <div>
                     <h1>San</h1>
-                    <p class="tracker-description">Pratite dužinu i kvalitet svog sna</p>
+                    <p class="tracker-description">Pratite dužinu svog sna tokom sedmice</p>
                 </div>
            </div>
         </div>
 
-        <div class="num-stats">
-            <div class="stats-card">
-                <h2>7.5h</h2>
-                <p>Prošla noć</p>
-            </div>
-            <div class="stats-card">
-                <h2>6.8</h2>
-                <p>Sedmični prosjek</p>
-            </div>
-            <div class="stats-card">
-                <h2>75%</h2>
-                <p>Kvalitet sna</p>
-            </div>
-            <div class="stats-card">
-                <h2>23:47</h2>
-                <p>Prosječno vrijeme</p>
-            </div>
-        </div>
+        <app-stats-component [stats]="sleepStats()"></app-stats-component>
 
         <div class="section-card">
         <h2>Upisivanje sna</h2>
@@ -40,10 +23,6 @@
             <label>Vrijeme buđenja</label>
             <input type="time" value="06:45">
         </div>
-        </div>
-            <div class="input-field" style="margin-top: 1rem;">
-            <label>Kvalitet sna (1-10)</label>
-            <input type="range" min="1" max="10" value="8" style="width: 100%;">
         </div>
             <button class="btn">Sačuvaj podatke o snu</button>
     </div>

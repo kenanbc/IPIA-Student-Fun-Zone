@@ -10,24 +10,7 @@
            </div>
         </div>
 
-        <div class="num-stats">
-            <div class="stats-card">
-                <h2>{{ waterService.glassCount() }}</h2>
-                <p>Čaša vode</p>
-            </div>
-            <div class="stats-card">
-                <h2>{{ waterService.todayLiters() }} L</h2>
-                <p>Ukupno</p>
-            </div>
-            <div class="stats-card">
-                <h2>{{ waterService.progress() }}%</h2>
-                <p>Dnevni cilj</p>
-            </div>
-            <div class="stats-card">
-                <h2>{{ waterService.dailyGoal() }} L</h2>
-                <p>Dnevni cilj</p>
-            </div>
-        </div>
+        <app-stats-component [stats]="waterStats()"></app-stats-component>
 
         <div class="add-intake">
             <h2>Današnji unos</h2>

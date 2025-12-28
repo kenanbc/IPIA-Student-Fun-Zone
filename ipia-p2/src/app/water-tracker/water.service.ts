@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { collection, addDoc, query, where, getDocs, orderBy, limit, Timestamp } from 'firebase/firestore';
+import { Timestamp, setDoc, doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AuthService } from '../auth';
 
@@ -36,12 +36,25 @@ export class WaterService {
     const amount = 250;
     
     if(!user) return;
-
+    const today = new Date().toISOString().split('T')[0];
     try {
-      await addDoc(collection(db, 'waterIntakes'), {
+      const docRef = doc(db, `users/${user.uid}/waterIntakes/${today}`);
+      const docSnap = await getDoc(docRef);
+      
+      let currentTotalMl = 0;
+      let currentGlasses = 0;
+      
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        currentTotalMl = data['totalMl'] || 0;
+        currentGlasses = data['glasses'] || 0;
+      }
+      
+      await setDoc(docRef, {
         userId: user.uid,
-        amount: amount,
-        date: new Date().toISOString().split('T')[0],
+        totalMl: currentTotalMl + amount,
+        glasses: currentGlasses + 1,
+        date: today,
         timestamp: Timestamp.now()
       });
 
@@ -59,28 +72,31 @@ export class WaterService {
     const today = new Date().toISOString().split('T')[0];
     
     try {
-      const q = query(
-        collection(db, 'waterIntakes'),
-        where('userId', '==', user.uid),
-        where('date', '==', today)
+      const q = doc(
+        db,
+        `users/${user.uid}/waterIntakes/${today}`
       );
 
-      const querySnapshot = await getDocs(q);
+      const snap = await getDoc(q);
+
       let totalMl = 0;
       let glasses = 0;
 
-      querySnapshot.forEach((doc) => {
-        const data = doc.data() as WaterIntake;
-        totalMl += data.amount;
-        glasses++;
-      });
+      if (snap.exists()) {
+        const data = snap.data();
+
+        totalMl = data['totalMl'] || 0;
+        glasses = data['glasses'] || 0;
+      }
 
       const liters = totalMl / 1000;
+
       this.todayLiters.set(Number(liters.toFixed(2)));
       this.glassCount.set(glasses);
-      
+
       const progressValue = (liters / this.dailyGoal()) * 100;
       this.progress.set(Math.min(Math.round(progressValue), 100));
+
     } catch (error) {
       console.error('Dogodila se greska', error);
     }
@@ -91,16 +107,10 @@ export class WaterService {
     if (!user) return;
 
     try {
-      const q = query(
-        collection(db, 'dailyGoals'),
-        where('userId', '==', user.uid),
-        orderBy('date', 'desc'),
-        limit(1)
-      );
-
-      const querySnapshot = await getDocs(q);
-      if (!querySnapshot.empty) {
-        const data = querySnapshot.docs[0].data() as DailyGoal;
+      const q = doc(db, `users/${user.uid}/trackers/water`);
+      const querySnapshot = await getDoc(q);
+      if (querySnapshot.exists()) {
+        const data = querySnapshot.data() as DailyGoal;
         this.dailyGoal.set(data.goalLiters);
       }
     } catch (error) {
@@ -111,9 +121,8 @@ export class WaterService {
   async setDailyGoal(goalLiters: number): Promise<void> {
     const user = this.authService.user();
     if (!user) return;
-    
     try {
-      await addDoc(collection(db, 'dailyGoals'), {
+      await setDoc(doc(db, `users/${user.uid}/trackers/water`), {
         userId: user.uid,
         goalLiters: goalLiters,
         date: Timestamp.now()
@@ -129,9 +138,26 @@ export class WaterService {
     }
   }
 
-  resetToday(): void {
-    this.todayLiters.set(0);
-    this.glassCount.set(0);
-    this.progress.set(0);
+  async resetToday(): Promise<void> {
+    const user = this.authService.user();
+    if (!user) return;
+    
+    const today = new Date().toISOString().split('T')[0];
+    try {
+      const docRef = doc(db, `users/${user.uid}/waterIntakes/${today}`);
+      await setDoc(docRef, {
+        userId: user.uid,
+        totalMl: 0,
+        glasses: 0,
+        date: today,
+        timestamp: Timestamp.now()
+      });
+      
+      this.todayLiters.set(0);
+      this.glassCount.set(0);
+      this.progress.set(0);
+    } catch (error) {
+      console.error('Greška pri resetovanju:', error);
+    }
   }
 }
