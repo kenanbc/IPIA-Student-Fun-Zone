@@ -17,4 +17,5 @@ export class SleepTracker {
   { label: 'Vrijeme spavanja', value: 0 },
   { label: 'Vrijeme buđenja', value: 0}
 ]);
+
 }

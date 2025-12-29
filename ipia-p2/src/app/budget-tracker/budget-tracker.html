@@ -1,0 +1,44 @@
+<div class="tracker-page">
+        <div>
+            <a routerLink="/mytrackers" class="back-btn">← Nazad</a>
+            <div class="heading">
+                <h1></h1>
+                <div>
+                    <h1>Budžet</h1>
+                    <p class="tracker-description">Pratite svoj budžet i troškove tokom sedmice</p>
+                </div>
+           </div>
+        </div>
+
+<app-stats-component [stats]="budgetStats()"></app-stats-component>
+
+<div class="add-transaction-container">
+    <h2>Dodaj transakciju</h2>
+    <form (ngSubmit)="addTransaction()">
+        <input type="text" placeholder="Opis" [(ngModel)]="transactionDescription" name="description" required />
+        <div class="inputs">
+        <input type="number" placeholder="Iznos" [(ngModel)]="transactionAmount" name="amount" required />
+        <select [(ngModel)]="transactionType" name="type" required>
+            <option value="" disabled selected>Tip</option>
+            <option value="income">Prihod</option>
+            <option value="expense">Trošak</option>
+        </select>
+        </div>
+        <button type="submit">Dodaj</button>
+    </form>
+</div>
+
+<div class="history-container">
+    <h2>Historija transakcija</h2>
+    @for(transaction of transactions; track transaction) {
+        <div class="history-transaction">
+            <div>
+                <p class="description">transactions.description</p>
+                <p class="time">transaction.time</p>
+            </div>
+            <div>
+                <p class="expense">transaction.amount</p>
+            </div>
+        </div>
+    }
+</div>

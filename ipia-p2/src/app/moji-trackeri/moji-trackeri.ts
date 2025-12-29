@@ -16,10 +16,10 @@ export class MojiTrackeri {
       route: 'water-tracker'
     },
     {
-      name: 'Vježbanje',
-      description: 'Praćenje fizičke aktivnosti',
-      icon: '🏋️‍♂️',
-      route: 'exercise-tracker'
+      name: 'Fokus',
+      description: 'Praćenje fokusa tokom dana',
+      icon: '🎯',
+      route: 'focus-tracker'
     },
     {
       name: 'San',
@@ -28,16 +28,16 @@ export class MojiTrackeri {
       route: 'sleep-tracker'
     },
     {
-      name: 'Ishrana',
-      description: 'Praćenje obroka i ishrane',
-      icon: '🍎',
-      route: 'nutrition-tracker'
+      name: 'Vježbanje',
+      description: 'Praćenje fizičke aktivnosti',
+      icon: '🏋️‍♂️',
+      route: 'exercise-tracker'
     },
     {
-      name: 'Fokus',
-      description: 'Praćenje fokusa tokom dana',
-      icon: '🎯',
-      route: 'focus-tracker'
+      name: 'Budžet',
+      description: 'Praćenje budžeta i troškova',
+      icon: '💰',
+      route: 'budget-tracker'
     },
     {
       name: 'Čitanje',
