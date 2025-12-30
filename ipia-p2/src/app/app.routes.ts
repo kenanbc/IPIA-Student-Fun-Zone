@@ -12,6 +12,7 @@ import { WaterTracker } from './water-tracker/water-tracker';
 import { SleepTracker } from './sleep-tracker/sleep-tracker';
 import { FocusTracker } from './focus-tracker/focus-tracker';
 import { BudgetTracker } from './budget-tracker/budget-tracker';
+import { ReadingTracker } from './reading-tracker/reading-tracker';
 
 export const routes: Routes = [
   {
@@ -67,6 +68,11 @@ export const routes: Routes = [
   {
     path: 'budget-tracker',
     component: BudgetTracker,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'reading-tracker',
+    component: ReadingTracker,
     canActivate: [authGuard]
   }
 ];

@@ -1,0 +1,53 @@
+<div class="tracker-page">
+        <div>
+            <a routerLink="/mytrackers" class="back-btn">← Nazad</a>
+            <div class="heading">
+                <h1></h1>
+                <div>
+                    <h1>Čitanje</h1>
+                    <p class="tracker-description">Pratite svoj napredak u čitanju</p>
+                </div>
+           </div>
+        </div>
+
+<app-stats-component [stats]="readingStats()"></app-stats-component>
+
+<div class="reading-container">
+    <h2>Dodaj novu knjigu</h2>
+    <form (ngSubmit)="addBook()">
+        <div class="inputs">
+            <input type="text" placeholder="Naslov knjige" [(ngModel)]="bookTitle" name="title" required />
+            <input type="number" placeholder="Broj stranica" [(ngModel)]="bookPages" name="pages" required />
+        </div>
+        <div>
+            <button type="submit">Dodaj</button>
+        </div>
+    </form>
+</div>
+
+<div class="reading-history">
+    <h2>Historija čitanja</h2>
+    @for(book of books; track book) {
+        <div class="reading-book">
+            <div>
+                <p class="title">{{book.title}}</p>
+                <p class="pages">{{book.pages}} stranica</p>
+            </div>
+            <div>
+                <p class="date">{{book.date}}</p>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="reading-container">
+    <h2>Postavite godišnji cilj</h2>
+    <form (ngSubmit)="addGoal()">
+        <div class="input-goal">
+            <input type="text" placeholder="Godišnji cilj" [(ngModel)]="goal" name="goal" required/>
+        </div>
+        <div>
+            <button type="submit">Sačuvaj</button>
+        </div>
+    </form>
+</div>
