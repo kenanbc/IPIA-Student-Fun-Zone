@@ -1,7 +1,6 @@
-
 h1 {
     text-align: center;
-    color: #2c3e50;
+    color: var(--font-color);
     margin-bottom: 20px;
     font-size: 2.5em;
 }
@@ -60,8 +59,6 @@ button:hover {
     box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
     background: blue;
 }
-
-/* Email Modal Styles */
 .email-modal {
     display: none;
     position: fixed;
@@ -129,4 +126,18 @@ button:hover {
 
 .email-cancel-btn:hover {
     background: #c0392b;
+}
+
+.btns{
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.back-btn {
+    background: var(--btn-close-bg);
+}
+
+.back-btn:hover {
+    background: var(--btn-close-hover-bg);
 }

@@ -4,7 +4,7 @@
   <div class="games">
     @for (game of games; track $index) {
     <div class="game-card">
-      <img [src]="game.img" alt="">
+      <img [src]="game.img" alt="" (click)="otvoriStranicu(game.route)">
       <button (click)="otvoriStranicu(game.route)" [disabled]="!game.route">{{ game.name }}</button>
     </div>}
   </div>

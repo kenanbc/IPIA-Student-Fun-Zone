@@ -1,3 +1,4 @@
+<div id="contentToConvert">
 <h1>Bingo Challenge</h1>
     <p>
       U ovoj igri potrebno je skupiti 5 potpisa zaredom.
@@ -44,17 +45,19 @@
     </table>
     <p>Skupi 5 potpisa zaredom - BINGO!</p>
     <p>Svaka osoba može staviti inicijale na vaš papir samo dva puta.</p>
-    <button onclick="generatePDF();">Preuzmi kao PDF</button>
-    <button onclick="openEmailModal();">Pošalji mailom</button>
-    <button routerLink="/studentfunzone" style="background-color: red;">Izlaz</button>
-
-    <div id="emailModal" class="email-modal">
+    <div class="btns">
+      <button (click)="generatePDF()">Preuzmi kao PDF</button>
+      <button (click)="openEmailModal()">Pošalji mailom</button>
+      <button routerLink="/studentfunzone" class="back-btn">Izlaz</button>
+    </div>
+    <div id="emailModal" class="email-modal" (click)="onModalClick($event)">
       <div class="email-modal-content">
         <h3>Pošalji mailom</h3>
         <input type="email" id="emailInput" placeholder="Unesite email adresu..." />
         <div class="email-modal-buttons">
-          <button onclick="sendEmail();" class="email-send-btn">Pošalji</button>
-          <button onclick="closeEmailModal();" class="email-cancel-btn">Poništi</button>
+          <button (click)="sendEmail()" class="email-send-btn">Pošalji</button>
+          <button (click)="closeEmailModal()" class="email-cancel-btn">Poništi</button>
         </div>
       </div>
     </div>
+</div>

@@ -5,6 +5,8 @@
     --dark-font-color: #1B262C;
     --btn-primary-bg: #00ADB5;
     --btn-secondary-bg: #3282B8;
+    --btn-close-bg: #E94560;
+    --btn-close-hover-bg: #c0392b;
 }
 
 body{

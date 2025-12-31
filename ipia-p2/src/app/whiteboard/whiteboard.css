@@ -1,46 +1,34 @@
-body{
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: linear-gradient(135deg, #eef2f3, #8e9eab);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    background: url('../slike/background.jpg');
-}
 
-h1{
-    color: #333;
-    margin-top: 10px;
-    text-shadow: 1px;
-    background-color: white;
-    padding: 10px 20px;
+h2{
+    color: var(--font-color);
+    text-shadow: 0.1rem;
+    text-align: center;
 }
 
 .toolbar{
-    background: rgb(225, 222, 225);
-    padding: 10px 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background: var(--primary-color);
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    border-radius: 1rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .toolbar label{
     font-size: 14px;
-    color: #444;
+    color: var(--font-color);
     margin-right: 5px;
 }
 
 button{
-    background: #345aaa;
-    color: white;
+    background: var(--secondary-color);
+    color: var(--font-color);
     border: none;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     padding: 8px 12px;
     cursor: pointer;
     transition: background 0.2s;
@@ -55,20 +43,12 @@ canvas{
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     touch-action: none;
-    max-width: 90vw;
-    max-height: 70vh;
-    cursor: url('../slike/marker.png') 0 30 auto;
-}
-
-footer{
-    margin-top: 20px;
-    font-size: 13px;
-    color: #555;
-    background-color: white;
+    max-width: 100%;
+    cursor: url('/marker.png') 0 30 auto;
 }
 
 button:hover{
-    background: turquoise;
+    background: var(--secondary-color);
     transform: scale(1.05);
 }
 

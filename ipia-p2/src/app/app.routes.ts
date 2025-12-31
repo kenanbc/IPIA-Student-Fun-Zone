@@ -13,6 +13,8 @@ import { SleepTracker } from './sleep-tracker/sleep-tracker';
 import { FocusTracker } from './focus-tracker/focus-tracker';
 import { BudgetTracker } from './budget-tracker/budget-tracker';
 import { ReadingTracker } from './reading-tracker/reading-tracker';
+import { Bingo } from './bingo/bingo';
+import { Whiteboard } from './whiteboard/whiteboard';
 
 export const routes: Routes = [
   {
@@ -51,6 +53,11 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
+    path: 'bingo',
+    component: Bingo,
+    canActivate: [authGuard]
+  },
+  {
     path: 'water-tracker',
     component: WaterTracker,
     canActivate: [authGuard]
@@ -73,6 +80,11 @@ export const routes: Routes = [
   {
     path: 'reading-tracker',
     component: ReadingTracker,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'whiteboard',
+    component: Whiteboard,
     canActivate: [authGuard]
   }
 ];
