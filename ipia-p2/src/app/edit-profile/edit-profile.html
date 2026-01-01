@@ -1,0 +1,58 @@
+<div>
+   <a routerLink="/view-my-profile" class="back-btn">← Nazad</a>
+</div>
+
+<div class="container">
+    <h2>Uredi profil</h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <div class="inner-first">
+                <div class="inner-small">
+                    <label for="firstName">Ime</label><br>
+                    <input type="text" id="firstName" class="form-control" [(ngModel)]="user.firstName" name="firstName" required><br>
+                </div>
+
+                <div class="inner-small">
+                    <label for="lastName">Prezime</label><br>
+                    <input type="text" id="lastName" class="form-control" [(ngModel)]="user.lastName" name="lastName" required>
+                </div>
+            </div>
+
+            <div class="inner-first">
+                <div class="inner-small">
+                    <label for="smjer">Smjer</label>
+                    <select id="smjer" name="smjer" [(ngModel)]="user.yearOfStudy" required>
+                        <option value="" disabled selected>Izaberite smjer</option>
+                        <option value="1">Informatika i računarstvo</option>
+                        <option value="2">Informacione tehnologije</option>
+                        <option value="3">Tržišne komunikacije</option>
+                        <option value="4">Savremeno poslovanje</option>
+                    </select>
+                </div>
+                <div class="inner-small">
+                    <label for="godina">Godina studija</label>
+                    <select id="godina" name="godina" [(ngModel)]="user.studyProgram" required>
+                        <option value="" disabled selected>Izaberite godinu studija</option>
+                        <option value="1">Prva godina</option>
+                        <option value="2">Druga godina</option>
+                        <option value="3">Treća godina</option>
+                        <option value="4">Četvrta godina</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="inner-long">
+                <!-- <label for="avatar">Avatar</label> -->
+                <div class="avatars"> 
+                        @for(avatar of avatars; track avatar.id) {
+                        <img src="/{{avatar.path}}" alt="{{avatar.path}}" class="avatar-option" (click)="selectAvatar(avatar)" [class.selected]="selectedAvatar.id === avatar.id">
+                        }
+                    </div>
+            </div>
+
+            <div class="btn">
+                <button type="submit">Sačuvaj promjene</button>
+            </div>
+        </div>
+    </form>
+</div>

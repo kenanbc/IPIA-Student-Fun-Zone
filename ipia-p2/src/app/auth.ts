@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
-import { signInWithEmailAndPassword, signOut, onAuthStateChanged, User } from 'firebase/auth';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from './firebase';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from './firebase';
 
 @Injectable({
@@ -67,7 +67,29 @@ export class AuthService {
 async getUserProfile(uid: string) {
   const docRef = doc(db, 'users', uid);
   const snap = await getDoc(docRef);
+  console.log(snap.data());
   return snap.data();
 }
 
+async register(firstName: string, lastName: string, email: string, password: string, avatarId: string, studyProgram: string, yearOfStudy: number | null) {
+  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+  const user = userCredential.user;
+  
+  const userProfile = {
+    firstName,
+    lastName,
+    email,
+    avatarId,
+    studyProgram,
+    yearOfStudy
+  };
+  
+  await setDoc(doc(db, 'users', user.uid), userProfile);
+  this.userProfile.set(userProfile);
+}
+
+async updateProfile(uid: string, profileData: any) {
+  await setDoc(doc(db, 'users', uid), profileData, { merge: true });
+  this.userProfile.set({ ...this.userProfile(), ...profileData });
+}
 }
