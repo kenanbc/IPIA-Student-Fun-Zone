@@ -1,8 +1,7 @@
 .container {
-    padding: 7rem 2rem;
-    background: #ffffff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 2rem;
     margin: 0 10%;
+    display: flex;
 }
 
 .login-container{
@@ -23,26 +22,22 @@
     justify-content: center;
 }
 
-orm {
-  width: 500px;
-}
-
 form label {
     display: block;
-    color: #4a90e2;
+    color: var(--primary-color);
     font-weight: bold;
+    margin-bottom: 0.3rem;
 }
 
 form input[type="text"],
 form input[type="email"],
-form input[type="tel"],
 form input[type="password"],
-form textarea {
+form select{
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
+    padding: 0.6rem;
+    border: 1px solid var(--font-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
     background: #fff;
     box-sizing: border-box;
 }
@@ -51,22 +46,58 @@ form input[type="text"]:focus,
 form input[type="email"]:focus,
 form input[type="tel"]:focus,
 form input[type="password"]:focus,
+form select:focus,
 form textarea:focus {
-    border-color: #4a90e2;
+    border-color: var(--primary-color);
     outline: none;
 }
 form input[type="submit"] {
-    background-color: #4a90e2;
+    background: var(--secondary-color);
     color: white;
     font-weight: bold;
     border: none;
-    padding: 12px 30px;
-    border-radius: 6px;
-    font-size: 15px;
+    padding: 0.8rem 2rem;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    font-size: 1rem;
     cursor: pointer;
-    width: 20rem;
+    width: 100%;
 }
 
 form input[type="submit"]:hover {
-    background-color: #357abd;
+    background: var(--primary-color);
+}
+
+.avatars{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.avatars img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.avatars img.selected {
+    border: 3px solid var(--primary-color);
+}
+
+h2{
+    color: var(--primary-color);
+}
+
+p{
+    margin-top: 2rem;
+    color: var(--secondary-color);
+}
+
+a{
+    color: var(--primary-color);
+    font-weight: bold;
 }
