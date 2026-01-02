@@ -21,7 +21,7 @@
             <div class="inner-first">
                 <div class="inner-small">
                     <label for="smjer">Smjer</label>
-                    <select id="smjer" name="smjer" [(ngModel)]="user.yearOfStudy" required>
+                    <select id="smjer" name="smjer" [(ngModel)]="user.studyProgram" required>
                         <option value="" disabled selected>Izaberite smjer</option>
                         <option value="1">Informatika i računarstvo</option>
                         <option value="2">Informacione tehnologije</option>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="inner-small">
                     <label for="godina">Godina studija</label>
-                    <select id="godina" name="godina" [(ngModel)]="user.studyProgram" required>
+                    <select id="godina" name="godina" [(ngModel)]="user.yearOfStudy" required>
                         <option value="" disabled selected>Izaberite godinu studija</option>
                         <option value="1">Prva godina</option>
                         <option value="2">Druga godina</option>

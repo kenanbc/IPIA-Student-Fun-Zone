@@ -30,7 +30,7 @@
 
 <div class="history-container">
     <h2>Historija transakcija</h2>
-    @for(transaction of transactions; track transaction) {
+    @for(transaction of transactions; track $index) {
         <div class="history-transaction">
             <div>
                 <p class="description">transactions.description</p>

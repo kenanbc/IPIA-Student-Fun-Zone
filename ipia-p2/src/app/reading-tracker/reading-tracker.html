@@ -27,7 +27,7 @@
 
 <div class="reading-history">
     <h2>Historija čitanja</h2>
-    @for(book of books; track book) {
+    @for(book of books; track $index) {
         <div class="reading-book">
             <div>
                 <p class="title">{{book.title}}</p>
