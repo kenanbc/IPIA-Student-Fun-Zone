@@ -29,7 +29,7 @@
 button
 {
     background-color: var(--secondary-color);
-    color:var(--font-color);
+    color: var(--font-color-light);
     font-weight:bold;
     border:none;
     padding:12px 30px;
@@ -45,10 +45,11 @@ button:hover
 
 #profile-email{
     color: var(--font-color);
+    /* margin-bottom: 0.6rem; */
 }
 
 #profile-name{
-    color: var(--font-color);
+    color:  var(--font-color-light);
     font-size: 2rem;
     font-weight: bold;
     margin: 0;
@@ -56,6 +57,7 @@ button:hover
 
 .btn-logout{
     background-color: #e24a4a;
+    color: var(--font-color-light);
 }
 .btn-logout:hover{
     background-color: #b33a3a;
@@ -96,4 +98,17 @@ button:hover
     border-radius: 1.5rem;
     padding: 1rem;
     box-sizing: border-box;
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--secondary-color);
+    margin-left: 1rem
+}
+
+#profile-study{
+    margin-top: 0;
 }

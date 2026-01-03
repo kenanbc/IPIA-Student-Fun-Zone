@@ -1,15 +1,17 @@
 <div class="main-profile-container">
     <!-- <h2 class="heading">Moj Profil</h2> -->
     <div class="profile-container">
-        <div class="avatar"><img src="/avatar.svg" alt="" style="width: 200px;"></div>
+        <div class="avatar">
+            <img [src]="'/avatar' + auth.userProfile()?.avatarId + '.png'" alt="" style="width: 200px;">
+        </div>
             <div>
             <div class="profile-content">
             <p id="profile-name">{{ auth.userProfile()?.firstName }} {{ auth.userProfile()?.lastName }}</p>
             <p id="profile-email">{{ auth.userProfile()?.email }}</p>
-            <p id="profile-email">Informatika i računarstvo (IV godina)</p>
+            <p id="profile-study">{{ formatUserProfileStudyProgram() }} ({{ formatUserProfileYearOfStudy() }})</p>
             </div>
             <div class="profile-buttons">
-                <button>Uredi profil</button>
+                <button routerLink="/edit-profile">Uredi profil</button>
                 <button (click)="logout()" class="btn-logout">Odjavi se</button>
             </div>
         </div>
