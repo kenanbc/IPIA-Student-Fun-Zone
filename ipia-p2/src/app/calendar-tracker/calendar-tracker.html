@@ -1,0 +1,60 @@
+<div class="tracker-page">
+        <div>
+            <a routerLink="/mytrackers" class="back-btn">← Nazad</a>
+            <div class="heading">
+                <div>
+                    <h1>Kalendar događaja</h1>
+                    <p class="tracker-description">Pratite svoj kalendar događaje tokom sedmice</p>
+                </div>
+           </div>
+        </div>
+
+<app-stats-component [stats]="calendarStats()"></app-stats-component>
+
+<div class="main-container">
+    <h2>Danas - {{todayDate}}</h2>
+
+    @if (eventsList.length == 0) {
+        <p class="no-events-message">Nema događaja za danas.</p>
+    } @else {
+    <div class="events-list">
+        @for(event of eventsList; track event){
+        <div class="event-item">
+            <div class="event-details">
+                <h3 class="event-title">{{event.title}}</h3>
+                <p class="event-description">{{event.description}}</p>
+            </div>
+            <div class="event-time">Vrijeme: {{event.time}}</div>
+        </div>
+        }
+    </div>
+    }
+</div>
+
+<div class="add-event">
+    <h2>Dodaj novi događaj</h2>
+    <form (ngSubmit)="addEvent()">
+
+        <div class="input-group">
+            <div class="input-field">
+                <label for="Naziv">Naziv događaja</label>
+                <input type="text" placeholder="Naziv" [(ngModel)]="eventTitle" name="title" required />
+            </div>
+            <div class="input-field">
+                <label for="Opis">Opis događaja</label>
+                <input type="text" placeholder="Opis" [(ngModel)]="eventDescription" name="description" required />
+            </div>
+        </div>
+        <div class="input-group">
+            <div class="input-field">
+                <label for="Datum i vrijeme">Datum</label>
+                <input type="date" [(ngModel)]="eventDate" name="date" required />
+            </div>
+            <div class="input-field">
+                <label for="Vrijeme">Vrijeme</label>
+                <input type="time" [(ngModel)]="eventTime" name="time" required />
+            </div>
+        </div>
+        <button type="submit">Dodaj</button>
+    </form>
+</div>
