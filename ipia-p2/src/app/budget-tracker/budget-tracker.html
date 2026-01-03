@@ -30,14 +30,16 @@
 
 <div class="history-container">
     <h2>Historija transakcija</h2>
-    @for(transaction of transactions; track $index) {
-        <div class="history-transaction">
+    @for(transaction of budgetService.transactions(); track $index) {
+        <div class="history-transaction" [class.income]="transaction.type === 'income'" [class.expense]="transaction.type === 'expense'">
             <div>
-                <p class="description">transactions.description</p>
-                <p class="time">transaction.time</p>
+                <p class="description">{{ transaction.description }}</p>
+                <p class="time">{{ transaction.time }}</p>
             </div>
             <div>
-                <p class="expense">transaction.amount</p>
+                <p [class.income]="transaction.type === 'income'" [class.expense]="transaction.type === 'expense'">
+                    {{ transaction.type === 'income' ? '+' : '-' }}{{ transaction.amount }} KM
+                </p>
             </div>
         </div>
     }

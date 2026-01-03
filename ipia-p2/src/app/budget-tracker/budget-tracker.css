@@ -109,7 +109,13 @@ button:hover{
 }
 
 .expense{
-    color: red;
+    color:var( --btn-close-bg);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.income{
+    color: rgb(58, 203, 58);
     font-weight: bold;
     font-size: 1.5rem;
 }
