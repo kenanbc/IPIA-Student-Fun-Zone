@@ -11,7 +11,6 @@ import { StatsComponent } from '../stats-component/stats-component';
   styleUrl: './water-tracker.css',
 })
 export class WaterTracker implements OnInit {
-  
 
   waterStats = computed(() => [
   { label: 'Čaša vode', value: this.waterService.glassCount() },
@@ -20,9 +19,10 @@ export class WaterTracker implements OnInit {
   { label: 'Cilj', value: this.waterService.dailyGoal(), unit: 'L' }
 ]);
 
-  selectedGoal: string = '1.5';
 
   constructor(public waterService: WaterService) {}
+
+  selectedGoal: string = '';
 
   ngOnInit(): void {
     this.waterService.loadTodayData();

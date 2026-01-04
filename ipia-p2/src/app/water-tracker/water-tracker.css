@@ -123,3 +123,7 @@ select:focus{
     display: flex;
     justify-content: space-between;
 }
+
+.tracker-description{
+    text-align: left;
+}
