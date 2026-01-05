@@ -3,7 +3,7 @@ import { Login } from './login/login';
 import { Register } from './register/register';
 import { ViewMyProfile } from './view-my-profile/view-my-profile';
 import { Studentfz } from './studentfz/studentfz';
-import { MojiTrackeri } from './moji-trackeri/moji-trackeri';
+import { MojiTrackeri } from './my-trackers/moji-trackeri';
 import { VisionBoardComponent } from './visionboard/visionboard';
 import { authGuard } from './auth.guard';
 import { noAuthGuard } from './no-auth.guard';
@@ -15,6 +15,10 @@ import { BudgetTracker } from './budget-tracker/budget-tracker';
 import { ReadingTracker } from './reading-tracker/reading-tracker';
 import { Bingo } from './bingo/bingo';
 import { Whiteboard } from './whiteboard/whiteboard';
+import { CalendarTracker } from './calendar-tracker/calendar-tracker';
+import { EditProfile } from './edit-profile/edit-profile';
+import { Quiz } from './quiz/quiz';
+import { Kanban } from './kanban/kanban';
 
 export const routes: Routes = [
   {
@@ -85,6 +89,26 @@ export const routes: Routes = [
   {
     path: 'whiteboard',
     component: Whiteboard,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'calendar-tracker',
+    component: CalendarTracker,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'edit-profile',
+    component: EditProfile,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'quiz',
+    component: Quiz,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'kanban',
+    component: Kanban,
     canActivate: [authGuard]
   }
 ];

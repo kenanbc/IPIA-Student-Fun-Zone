@@ -1,12 +1,91 @@
-:root{
+:root, body {
     --primary-color: #0F4C75;
     --secondary-color: #3282B8;
     --font-color: #BBE1FA;
+    --font-color-light: #f1f1f1;
     --dark-font-color: #1B262C;
     --btn-primary-bg: #00ADB5;
     --btn-secondary-bg: #3282B8;
     --btn-close-bg: #E94560;
     --btn-close-hover-bg: #c0392b;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --input-bg: rgba(255, 255, 255, 0.9);
+    --input-text: #1B262C;
+}
+
+body.dark-theme {
+    --primary-color: #1a1a2e;
+    --secondary-color: #16213e;
+    --font-color: #eaeaea;
+    --font-color-light: #f1f1f1;
+    --dark-font-color: #0f0f23;
+    --btn-primary-bg: #e94560;
+    --btn-secondary-bg: #533483;
+    --btn-close-bg: #e94560;
+    --btn-close-hover-bg: #c0392b;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --input-text: #eaeaea;
+}
+
+body.light-theme {
+    --primary-color: #f5f5f5;
+    --secondary-color: #e0e0e0;
+    --font-color: #333333;
+    --font-color-light: #666666;
+    --dark-font-color: #1a1a1a;
+    --btn-primary-bg: #2196F3;
+    --btn-secondary-bg: #64B5F6;
+    --btn-close-bg: #f44336;
+    --btn-close-hover-bg: #d32f2f;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --input-bg: #ffffff;
+    --input-text: #333333;
+}
+
+body.red-theme {
+    --primary-color: #D72631;
+    --secondary-color: #F46036;
+    --font-color: #ffffff;
+    --font-color-light: #f1f1f1;
+    --dark-font-color: #8B0000;
+    --btn-primary-bg: #FFB400;
+    --btn-secondary-bg: #F46036;
+    --btn-close-bg: #6A0572;
+    --btn-close-hover-bg: #520449;
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --input-bg: rgba(255, 255, 255, 0.9);
+    --input-text: #1B262C;
+}
+
+body.green-theme {
+    --primary-color: #379683;
+    --secondary-color: #5CDB95;
+    --font-color: #05386B;
+    --font-color-light: #f1f1f1;
+    --dark-font-color: #379683;
+    --btn-primary-bg: #8EE4AF;
+    --btn-secondary-bg: #5CDB95;
+    --btn-close-bg: #E94560;
+    --btn-close-hover-bg: #c0392b;
+    --card-bg: rgba(255, 255, 255, 0.2);
+    --input-bg: rgba(255, 255, 255, 0.9);
+    --input-text: #05386B;
+}
+
+body.pink-theme {
+    --primary-color: #e91e63;
+    --secondary-color: #f48fb1;
+    --font-color: #ffffff;
+    --font-color-light: #fce4ec;
+    --dark-font-color: #880e4f;
+    --btn-primary-bg: #ff4081;
+    --btn-secondary-bg: #f48fb1;
+    --btn-close-bg: #c2185b;
+    --btn-close-hover-bg: #ad1457;
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --input-bg: rgba(255, 255, 255, 0.9);
+    --input-text: #880e4f;
 }
 
 body{
@@ -14,6 +93,7 @@ body{
     font-family: "Nunito", "Rubik", sans-serif;
     background: var(--secondary-color);
     overflow: scroll;
+    height: auto;
 }
 
 h1, h2, h3, h4, h5, h6, p{
@@ -24,4 +104,10 @@ h1{
     font-size: 3rem;
     text-align: center; 
     margin-bottom: 2rem;
+}
+
+.icons{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
