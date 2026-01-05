@@ -83,6 +83,32 @@ label{
     scale: 1.1;
 }
 
+.theme-option{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.theme-option:hover {
+    transform: scale(1.1);
+}
+
+.theme-option.selected {
+    border: 3px solid var(--font-color-light);
+    transform: scale(1.15);
+}
+
+.themes {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
 button{
     margin-top: 1.5rem;
     width: 100%;

@@ -42,12 +42,23 @@
             </div>
 
             <div class="inner-long">
-                <!-- <label for="avatar">Avatar</label> -->
+                <label for="avatar">Odaberi avatar</label>
                 <div class="avatars"> 
                         @for(avatar of avatars; track avatar.id) {
                         <img src="/{{avatar.path}}" alt="{{avatar.path}}" class="avatar-option" (click)="selectAvatar(avatar)" [class.selected]="selectedAvatar.id === avatar.id">
                         }
                     </div>
+            </div>
+
+            <div class="inner-long">
+                <label>Odaberi temu</label>
+                <div class="themes"> 
+                    @for(theme of themes; track theme) {
+                        <div 
+                            class="theme-option" [style.background-color]="theme.previewColor" [class.selected]="selectedTheme.id === theme.id"(click)="selectTheme(theme)" [title]="theme.name">
+                        </div>
+                    }
+                </div>
             </div>
 
             <div class="btn">

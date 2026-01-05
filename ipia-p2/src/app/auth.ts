@@ -1,8 +1,9 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, inject } from '@angular/core';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from './firebase';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from './firebase';
+import { ThemeService } from './theme.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class AuthService {
   userProfile = signal<any | null>(null);
   private authLoadedPromise: Promise<void>;
   private authStateLoaded = false;
+  private themeService = inject(ThemeService);
 
   constructor() {
     this.authLoadedPromise = new Promise((resolve) => {
@@ -21,6 +23,9 @@ export class AuthService {
         if (user) {
           const profile = await this.getUserProfile(user.uid);
           this.userProfile.set(profile);
+          if (profile?.['themeId']) {
+            this.themeService.setThemeById(profile['themeId']);
+          }
         } else {
           this.userProfile.set(null);
         }
@@ -38,7 +43,7 @@ export class AuthService {
 
   async login(email: string, password: string) {
     await signInWithEmailAndPassword(auth, email, password);
-    // Sačekaj da se userProfile ažurira nakon logina
+
     await this.waitForUserProfile();
   }
 
@@ -56,6 +61,7 @@ export class AuthService {
   }
 
   logout() {
+    this.themeService.resetToDefault();
     return signOut(auth);
   }
 
