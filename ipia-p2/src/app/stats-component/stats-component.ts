@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './stats-component.css',
 })
 export class StatsComponent {
-  @Input() stats: { label: string; value: number; unit?: string }[] = [];
+  @Input() stats: { label: string; value: number | string; unit?: string }[] = [];
 }

@@ -1,15 +1,12 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-// import { onAuthStateChanged } from '@angular/fire/auth';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { auth } from './firebase';
 import { Navbar } from './navbar/navbar';
 import { AuthService } from './auth';
-// import { Login } from "./login/login";
-// import { Register } from "./register/register";
+import { Footer } from "./footer/footer";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar],
+  imports: [RouterOutlet, Navbar, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

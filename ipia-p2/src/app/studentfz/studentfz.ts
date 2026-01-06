@@ -14,7 +14,8 @@ export class Studentfz {
     { name: 'Kviz', route: '/quiz', img: '/laptop_3130747.png' },
     { name: 'WhiteBoard', route: '/whiteboard', img: '/whiteboards_18782820.png' },
     { name: 'VisionBoard', route: '/visionboard', img: '/target_5362709.png' },
-    { name: 'Kanban', route: null, img: '/planning_5792530.png' },
+    { name: 'Kanban', route: '/kanban', img: '/planning_5792530.png' },
+    // { name: 'IPIA Web', route: '', img: '/logo.png' },
   ];
 
   constructor(private router: Router) {}
