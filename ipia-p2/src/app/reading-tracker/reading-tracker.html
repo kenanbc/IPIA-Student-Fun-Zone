@@ -2,7 +2,6 @@
         <div>
             <a routerLink="/mytrackers" class="back-btn">← Nazad</a>
             <div class="heading">
-                <h1></h1>
                 <div>
                     <h1>Čitanje</h1>
                     <p class="tracker-description">Pratite svoj napredak u čitanju</p>
@@ -27,14 +26,14 @@
 
 <div class="reading-history">
     <h2>Historija čitanja</h2>
-    @for(book of books; track $index) {
+    @for(book of readingService.books(); track $index) {
         <div class="reading-book">
             <div>
                 <p class="title">{{book.title}}</p>
                 <p class="pages">{{book.pages}} stranica</p>
             </div>
             <div>
-                <p class="date">{{book.date}}</p>
+                <p class="date">{{book.date | date:'dd.MM.yyyy'}}</p>
             </div>
         </div>
     }
