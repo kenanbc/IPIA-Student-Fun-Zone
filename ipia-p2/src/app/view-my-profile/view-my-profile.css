@@ -67,9 +67,43 @@ button:hover
     margin-top: 2rem;
     background-color: var(--primary-color);
     border-radius: 1.5rem;
-    padding: 1rem;
+    padding: 1rem 2rem;
     box-sizing: border-box;
     color: var(--font-color);
+}
+
+.inner-history{
+    display: flex;
+    justify-content: flex-start;
+    gap: 1%;
+    flex-wrap: wrap;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    background-color: var(--secondary-bg-color, rgba(255, 255, 255, 0.05));
+    border-radius: 0.8rem;
+    margin-bottom: 0.5rem;
+    width: 28%;
+}
+
+.activity-icon {
+    width: 15%;
+}
+
+.activity-description {
+    margin: 0;
+    color: var(--font-color-light);
+}
+
+.activity-date {
+    margin: 0.25rem 0 0 0;
+    font-size: 0.85rem;
+    color: var(--font-color);
+    opacity: 0.7;
 }
 
 .achievements{
@@ -86,18 +120,7 @@ button:hover
     font-weight: bold;
     color: var(--font-color);
     margin-bottom: 1rem;
-}
-
-.streak{
-    margin-left: 5rem;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #ff5722;
-    text-align: center;
-    border: 1px solid #ff5722;
-    border-radius: 1.5rem;
-    padding: 1rem;
-    box-sizing: border-box;
+    margin-top: 0;
 }
 
 .avatar {

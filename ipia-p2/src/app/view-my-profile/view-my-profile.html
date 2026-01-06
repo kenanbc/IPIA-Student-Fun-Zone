@@ -15,16 +15,29 @@
                 <button (click)="logout()" class="btn-logout">Odjavi se</button>
             </div>
         </div>
-        <!-- <div class="streak">
-            <p>30 days <br>streak 🔥</p>
-        </div> -->
+
     </div>
     <div class="activity-history">
         <h3 class="subheading">Moje aktivnosti</h3>
-        <p>Jos nemas aktivnosti. Pocni da koristis aplikaciju kako bi biljezio svoje aktivnosti!</p>
+        <div class="inner-history">
+        @if(activityService.activities().length == 0){
+        <p>Još nemaš aktivnosti. Počni da koristiš aplikaciju kako bi bilježio svoje aktivnosti!</p>
+        }@else{
+            @for(activity of activityService.activities(); track activity.id){
+                <div class="activity-item">
+                    <img class="activity-icon" [src]="getActivityIcon(activity.type)" alt="{{ activity.type }}">
+                    <div class="activity-content">
+                        <p class="activity-description">{{ activity.description }}</p>
+                        <p class="activity-date">{{ activity.date | date:'dd.MM.yyyy. HH:mm' }}</p>
+                    </div>
+                </div>
+            }
+        }</div>
     </div>
-    <div class="achievements">
+
+    <!-- Ovo se planira u iducuj verziji jer se sad nema vremena :( -->
+    <!-- <div class="achievements">
         <h3 class="subheading">Postignuća</h3>
         <p>Jos nemas postignuca. Nastavi da koristis aplikaciju kako bi otkljucao postignuca!</p>
-    </div>
+    </div> -->
 </div>

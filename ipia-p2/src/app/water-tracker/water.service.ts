@@ -1,7 +1,8 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, inject } from '@angular/core';
 import { Timestamp, setDoc, doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AuthService } from '../auth';
+import { ActivityService } from '../activity.service';
 
 export interface WaterIntake {
   userId: string;
@@ -20,6 +21,8 @@ export interface DailyGoal {
   providedIn: 'root'
 })
 export class WaterService {
+  
+  private activityService = inject(ActivityService);
   
   todayLiters = signal<number>(0);
   glassCount = signal<number>(0);
@@ -58,6 +61,7 @@ export class WaterService {
         timestamp: Timestamp.now()
       });
 
+      await this.activityService.logActivity('water', `Popijeno ${amount}ml vode (čaša ${currentGlasses + 1})`);
       await this.loadTodayData();
     } catch (error) {
       console.error('Dogodila se greska', error);

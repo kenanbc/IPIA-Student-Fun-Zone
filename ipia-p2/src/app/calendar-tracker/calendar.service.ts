@@ -1,7 +1,8 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, inject } from '@angular/core';
 import { Timestamp, setDoc, doc, collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AuthService } from '../auth';
+import { ActivityService } from '../activity.service';
 
 export interface CalendarEvent {
   id?: string;
@@ -17,6 +18,8 @@ export interface CalendarEvent {
   providedIn: 'root'
 })
 export class CalendarService {
+
+  private activityService = inject(ActivityService);
 
   eventsList = signal<CalendarEvent[]>([]);
   todayCount = signal<number>(0);
@@ -118,6 +121,7 @@ export class CalendarService {
         timestamp: Timestamp.now()
       });
 
+      await this.activityService.logActivity('calendar', `Dodat događaj: "${title}" (${date} u ${time})`);
       await this.loadEvents();
     } catch (error) {
       console.error('Greška pri dodavanju događaja:', error);

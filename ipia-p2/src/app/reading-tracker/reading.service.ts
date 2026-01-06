@@ -1,7 +1,8 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, inject } from '@angular/core';
 import { Timestamp, setDoc, doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AuthService } from '../auth';
+import { ActivityService } from '../activity.service';
 
 export interface Book {
   title: string;
@@ -13,6 +14,8 @@ export interface Book {
   providedIn: 'root'
 })
 export class ReadingService {
+
+  private activityService = inject(ActivityService);
 
   books = signal<Book[]>([]);
   totalPages = signal<number>(0);
@@ -54,6 +57,7 @@ export class ReadingService {
         timestamp: Timestamp.now()
       });
 
+      await this.activityService.logActivity('reading', `Pročitana knjiga: "${title}" (${pages} stranica)`);
       await this.loadData();
     } catch (error) {
       console.error('Greška pri dodavanju knjige:', error);

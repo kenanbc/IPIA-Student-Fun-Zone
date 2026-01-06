@@ -1,7 +1,8 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, inject } from '@angular/core';
 import { doc, getDoc, setDoc, Timestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AuthService } from '../auth';
+import { ActivityService } from '../activity.service';
 
 export interface Transaction {
   description: string;
@@ -14,6 +15,8 @@ export interface Transaction {
   providedIn: 'root'
 })
 export class BudgetService {
+
+  private activityService = inject(ActivityService);
 
   transactions = signal<Transaction[]>([]);
   budget = signal<number>(0);
@@ -106,6 +109,8 @@ export class BudgetService {
         timestamp: Timestamp.now()
       });
 
+      const typeText = type === 'income' ? 'Prihod' : 'Trošak';
+      await this.activityService.logActivity('budget', `${typeText}: ${description} (${amount} KM)`);
       this.transactions.set(updatedTransactions);
       this.calculateStats();
     } catch (error) {

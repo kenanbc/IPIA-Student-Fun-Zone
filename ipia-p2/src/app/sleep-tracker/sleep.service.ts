@@ -1,12 +1,15 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, inject } from '@angular/core';
 import { Timestamp, setDoc, doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AuthService } from '../auth';
+import { ActivityService } from '../activity.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SleepService {
+  
+  private activityService = inject(ActivityService);
   
   lastNightHours = signal<number>(0);
   weeklyAverage = signal<number>(0);
@@ -35,6 +38,7 @@ export class SleepService {
         timestamp: Timestamp.now()
       });
 
+      await this.activityService.logActivity('sleep', `Zabilježeno ${hours}h sna (${bedTime} - ${wakeTime})`);
       await this.loadWeekData();
     } catch (error) {
       console.error('Greska pri spremanju sna:', error);
