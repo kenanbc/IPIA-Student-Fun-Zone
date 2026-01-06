@@ -1,0 +1,25 @@
+.main-trackers-container {
+    /* border: 1px solid #070707; */
+    height: 100%;
+}
+.heading {
+    text-align: center;
+    margin: 1.5rem 0 3rem 0;
+}
+.heading h1{
+    font-size: 3rem;
+    color: var(--font-color);
+    margin-bottom: 0.5rem;
+}
+
+.heading p {
+    font-size: 1rem;
+    color: var(--font-color);
+    margin-top: 0.5rem;
+}
+.tracker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding-bottom: 4rem;
+}

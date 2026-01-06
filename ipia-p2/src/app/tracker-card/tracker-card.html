@@ -1,8 +1,8 @@
 <a routerLink="/{{tracker.route}}" class="tracker-card">
-    <div class="tracker-icon">{{tracker.icon}}</div>
+    <div class="tracker-icon"><img src="{{tracker.icon}}"></div>
         <h2>{{tracker.name}}</h2>
         <p>{{tracker.description}}</p>
     <div class="tracker-last-used">
-        <span class="last-used">Zadnji unos: 28.04.2025 10:02</span>
+        <span class="last-used">Zadnji unos: {{tracker.lastUsed}}</span>
     </div>
 </a>

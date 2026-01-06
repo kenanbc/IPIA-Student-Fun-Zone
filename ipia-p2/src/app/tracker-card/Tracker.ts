@@ -3,4 +3,5 @@ interface Tracker {
   description: string;
   icon: string;
   route: string;
+  lastUsed: string;
 }
