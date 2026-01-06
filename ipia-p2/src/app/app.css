@@ -1,4 +1,13 @@
 .app-container {
   margin: 2rem 20% 3rem 20%;
   /* border: 1px solid red; */
+  flex: 1;
+  display: block;
+  
+}
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

@@ -2,7 +2,6 @@ nav
 {
     background: var(--primary-color);
     padding: 15px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);   
     padding: 0.5% 20%;
     display: flex;
     align-items: center;
@@ -11,7 +10,7 @@ nav
 
 nav a, nav a:hover, nav a:visited, nav a:active
 {
-    color: white;
+    color: var(--font-color);
     padding: 12px 10px;
     text-transform:uppercase;
     font-weight:600;

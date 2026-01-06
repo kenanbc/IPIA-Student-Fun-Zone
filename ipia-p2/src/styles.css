@@ -11,6 +11,7 @@
     --card-bg: rgba(255, 255, 255, 0.1);
     --input-bg: rgba(255, 255, 255, 0.9);
     --input-text: #1B262C;
+    height: 100%;
 }
 
 body.dark-theme {

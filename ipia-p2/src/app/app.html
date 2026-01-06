@@ -1,5 +1,7 @@
+<div class="layout">
 @if (auth.userProfile()?.email) {<app-navbar></app-navbar>}
 <div class="app-container">
   <router-outlet></router-outlet>
 </div>
-<app-footer></app-footer>
+@if (auth.userProfile()?.email) {<app-footer></app-footer>}
+</div>
