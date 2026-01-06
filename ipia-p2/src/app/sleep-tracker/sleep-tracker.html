@@ -2,7 +2,6 @@
         <div>
             <a routerLink="/mytrackers" class="back-btn">← Nazad</a>
             <div class="heading">
-                <h1></h1>
                 <div>
                     <h1>San</h1>
                     <p class="tracker-description">Pratite dužinu svog sna tokom sedmice</p>
@@ -17,23 +16,29 @@
             <div class="input-group">
             <div class="input-field">
             <label>Vrijeme odlaska na spavanje</label>
-            <input type="time" value="23:15">
+            <input type="time" [(ngModel)]="bedTime">
             </div>
         <div class="input-field">
             <label>Vrijeme buđenja</label>
-            <input type="time" value="06:45">
+            <input type="time" [(ngModel)]="wakeTime">
         </div>
         </div>
-            <button class="btn">Sačuvaj podatke o snu</button>
+            <button class="btn" (click)="saveSleep()">Sačuvaj podatke o snu</button>
     </div>
 
         <div class="week-sleep">
             <h2>Pregled sedmice</h2>
             @for (day of days; track $index) {
             <div class="days-sleep">
-                <p>{{day}}</p>
+                <div class="day">
+                    <p>{{day}}</p>
+                </div>
                 <div class="progress-wrapper">
-                    <div class="progress-bar" [style.width.%]="75"></div>
+                    <div class="progress-bar" [style.width.%]="getProgress($index)"></div>
+                </div>
+                <div class="hours">
+                    <p>{{sleepService.weekData()[$index]}}h</p>
                 </div>
             </div>}
+    </div>
     </div>
