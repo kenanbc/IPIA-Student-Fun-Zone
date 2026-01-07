@@ -25,16 +25,18 @@ export class SleepService {
     const user = this.authService.user();
     if (!user) return;
 
-    const today = new Date().toISOString().split('T')[0];
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayStr = yesterday.toISOString().split('T')[0];
     const hours = this.calculateHours(bedTime, wakeTime);
 
     try {
-      const docRef = doc(db, `users/${user.uid}/sleepData/${today}`);
+      const docRef = doc(db, `users/${user.uid}/sleepData/${yesterdayStr}`);
       await setDoc(docRef, {
         bedTime: bedTime,
         wakeTime: wakeTime,
         hours: hours,
-        date: today,
+        date: yesterdayStr,
         timestamp: Timestamp.now()
       });
 

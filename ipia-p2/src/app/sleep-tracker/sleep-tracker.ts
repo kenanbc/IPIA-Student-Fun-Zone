@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class SleepTracker implements OnInit {
 
-  days = ['Pon', 'Uto', 'Sri', 'Čet', 'Pet', 'Sub', 'Ned'];
+  days: string[] = [];
   
   bedTime: string = '22:00';
   wakeTime: string = '07:00';
@@ -24,10 +24,23 @@ export class SleepTracker implements OnInit {
     { label: 'Vrijeme buđenja', value: this.sleepService.wakeTime() }
   ]);
 
-  constructor(public sleepService: SleepService) {}
+  constructor(public sleepService: SleepService) {
+    this.generateWeekDays();
+  }
 
   ngOnInit(): void {
     this.sleepService.loadWeekData();
+  }
+
+  generateWeekDays(): void {
+    const dayNames = ['Ned', 'Pon', 'Uto', 'Sri', 'Čet', 'Pet', 'Sub'];
+    const today = new Date();
+    
+    for (let i = 6; i >= 0; i--) {
+      const date = new Date(today);
+      date.setDate(today.getDate() - i);
+      this.days.push(dayNames[date.getDay()]);
+    }
   }
 
   async saveSleep(): Promise<void> {
