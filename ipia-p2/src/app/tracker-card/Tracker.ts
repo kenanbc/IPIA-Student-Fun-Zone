@@ -3,5 +3,6 @@ interface Tracker {
   description: string;
   icon: string;
   route: string;
-  lastUsed: string;
+  type: 'sleep' | 'water' | 'budget' | 'reading' | 'focus' | 'calendar';
+  lastUsed?: string;
 }

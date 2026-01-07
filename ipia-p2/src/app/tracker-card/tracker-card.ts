@@ -8,5 +8,5 @@ import { RouterLink } from "@angular/router";
   styleUrl: './tracker-card.css',
 })
 export class TrackerCard {
-  @Input() tracker!: { name: string; description: string; icon: string; route: string; lastUsed: string;};
+  @Input() tracker!: Tracker;
 }

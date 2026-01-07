@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { TrackerCard } from '../tracker-card/tracker-card';
+import { ActivityService, Activity } from '../activity.service';
 
 @Component({
   selector: 'app-moji-trackeri',
@@ -7,49 +8,70 @@ import { TrackerCard } from '../tracker-card/tracker-card';
   templateUrl: './moji-trackeri.html',
   styleUrl: './moji-trackeri.css',
 })
-export class MojiTrackeri {
-  myTrackers: Tracker[] = [
+export class MojiTrackeri implements OnInit {
+  private activityService = inject(ActivityService);
+
+  private baseTrackers: Tracker[] = [
     {
       name: 'Voda',
       description: 'Praćenje unosa vode',
       icon: '/clean-water.png',
       route: 'water-tracker',
-      lastUsed: '25.06.2024 14:30'
+      type: 'water',
+      lastUsed: 'Učitavanje...'
     },
     {
       name: 'Fokus',
       description: 'Praćenje fokusa tokom dana',
       icon: '/stopwatch.png',
       route: 'focus-tracker',
-      lastUsed: '24.06.2024 09:15'
+      type: 'focus',
+      lastUsed: 'Učitavanje...'
     },
     {
       name: 'San',
       description: 'Praćenje kvaliteta sna',
       icon: '/sleep.png',
       route: 'sleep-tracker',
-      lastUsed: '23.06.2024 22:00'
+      type: 'sleep',
+      lastUsed: 'Učitavanje...'
     },
     {
       name: 'Kalendar',
       description: 'Praćenje nadolazećih događaja',
       icon: '/schedule.png',
       route: 'calendar-tracker',
-      lastUsed: '22.06.2024 18:45'
+      type: 'calendar',
+      lastUsed: 'Učitavanje...'
     },
     {
       name: 'Budžet',
       description: 'Praćenje budžeta i troškova',
       icon: '/budget.png',
       route: 'budget-tracker',
-      lastUsed: '21.06.2024 12:20'
+      type: 'budget',
+      lastUsed: 'Učitavanje...'
     },
     {
       name: 'Čitanje',
       description: 'Praćenje čitanja knjiga',
       icon: '/book.png',
       route: 'reading-tracker',
-      lastUsed: '20.06.2024 16:10'
+      type: 'reading',
+      lastUsed: 'Učitavanje...'
     }
   ];
+
+  myTrackers = signal<Tracker[]>(this.baseTrackers);
+
+  async ngOnInit() {
+    const lastUsedMap = await this.activityService.getLastUsedByType();
+    
+    const updated = this.baseTrackers.map(tracker => ({
+      ...tracker,
+      lastUsed: lastUsedMap.get(tracker.type) || 'Nikad korišteno'
+    }));
+    
+    this.myTrackers.set(updated);
+  }
 }
