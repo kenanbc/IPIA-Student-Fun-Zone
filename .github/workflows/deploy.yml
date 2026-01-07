@@ -30,7 +30,16 @@ jobs:
 
       - name: Build Angular app
         working-directory: ./ipia-p2
-        run: npm run build -- --configuration production --base-href /WP_Projekat2/
+        run: npm run build -- --configuration production --base-href /WP_2_Kenan_Babic/
+
+      - name: List build output
+        run: |
+          echo "=== Listing dist directory ==="
+          ls -la ./ipia-p2/dist/
+          echo "=== Listing ipia-p2 directory ==="
+          ls -la ./ipia-p2/dist/ipia-p2/ || echo "ipia-p2 folder not found"
+          echo "=== Listing browser directory ==="
+          ls -la ./ipia-p2/dist/ipia-p2/browser/ || echo "browser folder not found"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
