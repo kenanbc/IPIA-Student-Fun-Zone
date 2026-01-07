@@ -2,7 +2,6 @@
         <div>
             <a routerLink="/mytrackers" class="back-btn">← Nazad</a>
             <div class="heading">
-                <h1></h1>
                 <div>
                     <h1>Fokus</h1>
                     <p class="tracker-description">Pratite dužinu svog fokusa tokom dana</p>
@@ -11,3 +10,25 @@
 </div>
 
 <app-stats-component [stats]="focusStats()"></app-stats-component>
+
+<div class="timer-container">
+    <h2>Tajmer fokusa</h2>
+    <div class="timer-circle">
+        <h1>{{displayTime}}</h1>
+    </div>
+    <div class="time-options-container">
+        @for(time of timeOptions; track $index){
+            <button 
+                class="time-option-btn" [class.selected]="selectedTime() === time" [disabled]="isRunning()" (click)="selectTime(time)">
+                {{time}} min
+            </button>
+        }
+    </div>
+    <div class="btns">
+        <button class="start-btn" (click)="toggleTimer()">
+            {{isRunning() ? 'Pauziraj' : 'Pokreni tajmer'}}
+        </button>
+        <button class="reset-btn" (click)="resetTimer()">Resetuj tajmer</button>
+    </div>
+</div>
+
