@@ -32,7 +32,8 @@ article img
     transition: transform 0.3s ease;
 }
 .game-card:hover {
-    transform: translateY(-5px);
+    border: 2px solid var(--font-color);
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.3);
 }
 
 .game-card img {
@@ -54,11 +55,10 @@ article img
     background-color: var(--primary-color);
     color: white;
     border: none;
-    padding: 10px;
-    font-size: 16px;
+    padding: 0.7rem;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .game-card button:hover {

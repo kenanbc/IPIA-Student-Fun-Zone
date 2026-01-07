@@ -21,7 +21,7 @@ export class ReadingTracker implements OnInit {
   ]);
 
   bookTitle = '';
-  bookPages = 0;
+  bookPages: number | null = null;
   goal = 20;
 
   constructor(public readingService: ReadingService) {}
@@ -32,6 +32,7 @@ export class ReadingTracker implements OnInit {
   }
 
   async addBook(): Promise<void> {
+    if(this.bookPages === null) return;
     if (this.bookTitle && this.bookPages > 0) {
       await this.readingService.addBook(this.bookTitle, this.bookPages);
       this.bookTitle = '';

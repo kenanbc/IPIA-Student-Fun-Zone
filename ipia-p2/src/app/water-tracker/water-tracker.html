@@ -1,6 +1,6 @@
 <div class="tracker-page">
         <div>
-            <a routerLink="/mytrackers" class="back-btn">← Nazad</a>
+            <a routerLink="/mytrackers" class="back-btn">Nazad</a>
             <div class="heading">
                 <div>
                     <h1>Unos vode tokom dana</h1>
@@ -24,6 +24,14 @@
                 <button class="reset" (click)="reset()">Resetuj</button>
             </div>
         </div>
+
+        <div class="chart-container">
+            <h2>Sedmični pregled</h2>
+            <div class="chart-wrapper">
+                <canvas #waterChart></canvas>
+            </div>
+        </div>
+        
         <div class="goal-intake">
             <h2>Postavke</h2>
             <p>Podesite dnevni cilj unosa vode</p>

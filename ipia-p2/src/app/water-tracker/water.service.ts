@@ -1,5 +1,5 @@
 import { Injectable, signal, inject } from '@angular/core';
-import { Timestamp, setDoc, doc, getDoc } from 'firebase/firestore';
+import { Timestamp, setDoc, doc, getDoc, query, collection, where, getDocs, orderBy, limit } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AuthService } from '../auth';
 import { ActivityService } from '../activity.service';
@@ -163,5 +163,43 @@ export class WaterService {
     } catch (error) {
       console.error('Greška pri resetovanju:', error);
     }
+  }
+
+  async getWeeklyData(): Promise<{ dates: string[], values: number[] }> {
+    const user = this.authService.user();
+    if (!user) return { dates: [], values: [] };
+
+    const dates: string[] = [];
+    const values: number[] = [];
+    
+    for (let i = 6; i >= 0; i--) {
+      const date = new Date();
+      date.setDate(date.getDate() - i);
+      const dateStr = date.toISOString().split('T')[0];
+      
+      try {
+        const docRef = doc(db, `users/${user.uid}/waterIntakes/${dateStr}`);
+        const docSnap = await getDoc(docRef);
+        
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          const liters = (data['totalMl'] || 0) / 1000;
+          values.push(Number(liters.toFixed(2)));
+        } else {
+          values.push(0);
+        }
+        
+        const dayNames = ['Ned', 'Pon', 'Uto', 'Sri', 'Čet', 'Pet', 'Sub'];
+        const dayName = dayNames[date.getDay()];
+        const formattedDate = `${dayName} ${date.getDate()}.${date.getMonth() + 1}`;
+        dates.push(formattedDate);
+      } catch (error) {
+        console.error('Greška pri učitavanju podataka:', error);
+        values.push(0);
+        dates.push('');
+      }
+    }
+    
+    return { dates, values };
   }
 }

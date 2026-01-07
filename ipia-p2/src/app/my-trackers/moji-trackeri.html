@@ -1,12 +1,10 @@
 <div class="main-trackers-container">
     <div class="heading">
         <h1>Moji Trackeri</h1>
-        <p>Ovdje možete pratiti svoje aktivnosti</p>
     </div>
     <div class="tracker-grid">
         @for(tracker of myTrackers(); track tracker.route) {
         <app-tracker-card [tracker]="tracker"></app-tracker-card>
         }
     </div>
-    
 </div>

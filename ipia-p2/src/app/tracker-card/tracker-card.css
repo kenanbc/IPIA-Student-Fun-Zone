@@ -1,22 +1,19 @@
 .tracker-card {
     background: var(--primary-color);
     border: 1px solid var(--primary-color);
-    border-radius: 16px;
+    border-radius: 1rem;
     padding: 2rem;
     text-decoration: none;
     color: var(--font-color);
-    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    /* position: relative; */
     overflow: hidden;
 }
 
 .tracker-card:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
     border-color: var(--font-color);
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.3);
 }
 
 .tracker-icon {
