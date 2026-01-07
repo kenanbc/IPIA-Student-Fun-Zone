@@ -73,7 +73,6 @@ export class AuthService {
 async getUserProfile(uid: string) {
   const docRef = doc(db, 'users', uid);
   const snap = await getDoc(docRef);
-  console.log(snap.data());
   return snap.data();
 }
 

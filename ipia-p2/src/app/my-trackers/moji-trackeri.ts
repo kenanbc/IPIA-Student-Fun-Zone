@@ -15,7 +15,7 @@ export class MojiTrackeri implements OnInit {
     {
       name: 'Voda',
       description: 'Praćenje unosa vode',
-      icon: '/clean-water.png',
+      icon: 'clean-water.png',
       route: 'water-tracker',
       type: 'water',
       lastUsed: 'Učitavanje...'
@@ -23,7 +23,7 @@ export class MojiTrackeri implements OnInit {
     {
       name: 'Fokus',
       description: 'Praćenje fokusa tokom dana',
-      icon: '/stopwatch.png',
+      icon: 'stopwatch.png',
       route: 'focus-tracker',
       type: 'focus',
       lastUsed: 'Učitavanje...'
@@ -31,7 +31,7 @@ export class MojiTrackeri implements OnInit {
     {
       name: 'San',
       description: 'Praćenje kvaliteta sna',
-      icon: '/sleep.png',
+      icon: 'sleep.png',
       route: 'sleep-tracker',
       type: 'sleep',
       lastUsed: 'Učitavanje...'
@@ -39,7 +39,7 @@ export class MojiTrackeri implements OnInit {
     {
       name: 'Kalendar',
       description: 'Praćenje nadolazećih događaja',
-      icon: '/schedule.png',
+      icon: 'schedule.png',
       route: 'calendar-tracker',
       type: 'calendar',
       lastUsed: 'Učitavanje...'
@@ -47,7 +47,7 @@ export class MojiTrackeri implements OnInit {
     {
       name: 'Budžet',
       description: 'Praćenje budžeta i troškova',
-      icon: '/budget.png',
+      icon: 'budget.png',
       route: 'budget-tracker',
       type: 'budget',
       lastUsed: 'Učitavanje...'
@@ -55,7 +55,7 @@ export class MojiTrackeri implements OnInit {
     {
       name: 'Čitanje',
       description: 'Praćenje čitanja knjiga',
-      icon: '/book.png',
+      icon: 'book.png',
       route: 'reading-tracker',
       type: 'reading',
       lastUsed: 'Učitavanje...'

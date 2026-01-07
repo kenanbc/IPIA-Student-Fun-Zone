@@ -5,7 +5,7 @@
    <button routerLink="/studentfunzone">Izlaz</button>
 </div>
 
-<div class="board">
+<div class="board" [style.background-image]="'url(pluto.png)'">
 
   @for (item of items; track item.id) {
     <div

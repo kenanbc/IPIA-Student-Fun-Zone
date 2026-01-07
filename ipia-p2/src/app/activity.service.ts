@@ -118,13 +118,13 @@ export class ActivityService {
 
   getActivityIcon(type: Activity['type']): string {
     const icons: Record<Activity['type'], string> = {
-      'sleep': '/sleep.png',
-      'water': '/clean-water.png',
-      'budget': '/budget.png',
-      'reading': '/book.png',
-      'focus': '/stopwatch.png',
-      'calendar': '/schedule.png'
+      'sleep': 'sleep.png',
+      'water': 'clean-water.png',
+      'budget': 'budget.png',
+      'reading': 'book.png',
+      'focus': 'stopwatch.png',
+      'calendar': 'schedule.png'
     };
-    return icons[type] || '/logo.png';
+    return icons[type] || 'logo.png';
   }
 }
