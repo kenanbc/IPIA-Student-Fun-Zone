@@ -35,7 +35,7 @@
                     <label for="avatar">Izaberite avatar:</label>
                     <div class="avatars"> 
                         @for(avatar of avatars; track avatar.id) {
-                        <img src="/{{avatar.path}}" alt="{{avatar.path}}" class="avatar-option" (click)="selectAvatar(avatar)" [class.selected]="selectedAvatar.id === avatar.id">
+                        <img src="{{avatar.path}}" alt="{{avatar.path}}" class="avatar-option" (click)="selectAvatar(avatar)" [class.selected]="selectedAvatar.id === avatar.id">
                         }
                     </div>
 
