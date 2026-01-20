@@ -69,6 +69,9 @@ export class SleepService {
     try {
       const weekHours: number[] = [];
       const today = new Date();
+      const yesterday = new Date();
+      yesterday.setDate(yesterday.getDate() - 1);
+      const yesterdayStr = yesterday.toISOString().split('T')[0];
 
       for (let i = 6; i >= 0; i--) {
         const date = new Date(today);
@@ -89,7 +92,7 @@ export class SleepService {
       this.weekData.set(weekHours);
 
       const todayStr = today.toISOString().split('T')[0];
-      const todayDoc = doc(db, `users/${user.uid}/sleepData/${todayStr}`);
+      const todayDoc = doc(db, `users/${user.uid}/sleepData/${yesterdayStr}`);
       const todaySnap = await getDoc(todayDoc);
 
       if (todaySnap.exists()) {

@@ -2,7 +2,7 @@
     <!-- <h2 class="heading">Moj Profil</h2> -->
     <div class="profile-container">
         <div class="avatar">
-            <img [src]="'avatar' + auth.userProfile()?.avatarId + '.png'" alt="" style="width: 200px;">
+            <img [src]="'avatar' + (auth.userProfile()?.avatarId || 1) + '.png'" alt="" style="width: 200px;">
         </div>
             <div>
             <div class="profile-content">
